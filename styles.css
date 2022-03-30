@@ -1,0 +1,21 @@
+:root {
+  --size: 16;
+  --color: 'red';
+}
+
+#grid-container {
+  display: inline-grid;
+  grid-template-columns: repeat(var(--size), 1fr);
+  width: 720px;
+  height: 720px;
+}
+
+.grid-item {
+  border: 1px solid black;
+}
+
+.fill {
+  background-color: rgb(63, 9, 9);
+  background-color: hsl(10, 10, 10);
+  background-color: rgb(63, 9, 9);
+}
