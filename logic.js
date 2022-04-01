@@ -31,6 +31,7 @@ let captureResponse = () => {
   }
 };
 
+//removes all cells from grid
 let deleteGrid = () => {
   let n = gridSize * gridSize;
   while (n > 0) {
@@ -40,6 +41,7 @@ let deleteGrid = () => {
   }
 };
 
+//creates the grid based on input. Defaults to 16x16.
 let createGrid = () => {
   document.documentElement.style.setProperty(`--size`, `${gridSize}`);
   let n = gridSize * gridSize;
@@ -52,7 +54,7 @@ let createGrid = () => {
   }
 };
 
-//adds rainbow color to tiles.
+//color the hovered tile or darken it if it already has color
 let colorTiles = event => {
   let tileColor = event.target.style.backgroundColor;
 
@@ -63,11 +65,13 @@ let colorTiles = event => {
   }
 };
 
+//sets hovered tile to random color
 let setColor = event => {
   let randomHue = Math.floor(Math.random() * 255);
   event.target.style.backgroundColor = `hsl(${randomHue},100%, 50%)`;
 };
 
+//reduces the lightness of a current tile by 5%. Tile should be black after 10 hovers.
 let darkenColor = event => {
   let tileColor = event.target.style.backgroundColor;
   let rgbInts = tileColor.match(/(\d+)/g); //RGB conversion
