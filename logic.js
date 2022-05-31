@@ -22,7 +22,7 @@ let clearGrid = () => {
 //prompt when resizing grid, set response.
 let captureResponse = () => {
   parseInt(
-    (response = prompt(
+    (gridSize = prompt(
       'How big would you like the grid? Please keep it less than 100.'
     ))
   );
@@ -49,13 +49,13 @@ let createGrid = () => {
     const GRID = document.createElement('div');
     GRID.classList.add('grid-item');
     CONTAINER.appendChild(GRID);
-    GRID.addEventListener('mouseenter', event => colorTiles(event));
+    GRID.addEventListener('mouseenter', (event) => colorTiles(event));
     n--;
   }
 };
 
 //color the hovered tile or darken it if it already has color
-let colorTiles = event => {
+let colorTiles = (event) => {
   let tileColor = event.target.style.backgroundColor;
 
   if (tileColor == '') {
@@ -66,13 +66,13 @@ let colorTiles = event => {
 };
 
 //sets hovered tile to random color
-let setColor = event => {
+let setColor = (event) => {
   let randomHue = Math.floor(Math.random() * 255);
   event.target.style.backgroundColor = `hsl(${randomHue},100%, 50%)`;
 };
 
 //reduces the lightness of a current tile by 5%. Tile should be black after 10 hovers.
-let darkenColor = event => {
+let darkenColor = (event) => {
   let tileColor = event.target.style.backgroundColor;
   let rgbInts = tileColor.match(/(\d+)/g); //RGB conversion
   let r = rgbInts[0];
